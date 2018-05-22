@@ -3,7 +3,7 @@ import glob
 import time
 import sys
 
-env = Environment(CCFLAGS=['-O3', '--std=c++14'],
+env = Environment(CCFLAGS=['-O3', '--std=c++11'],
                   CPPPATH=['./googlebenchmark/'],
                   LIBPATH=['./googlebenchmark/'],
                   LIBS=['benchmark', 'pthread'])
