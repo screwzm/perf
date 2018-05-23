@@ -32,6 +32,8 @@ But I prefer
 
 # 1.2 RULES
 
+*Rule #0* - Optimization is oftern about tradeoff, like we do in our daily life..
+
 <br>
 *Rule #1* - It's OK to optimize as early as in design stage.
 

@@ -5,15 +5,12 @@
 #include <unistd.h>
 
 static const auto loopCount = 10;
-struct HeavyStruct
+struct LightStruct
 {
     std::array<int, 4096> m_array;
-    HeavyStruct(const int i) { m_array[0] = i; }
+    LightStruct(const int i) { m_array[0] = i; }
 
-    HeavyStruct(const HeavyStruct& rh) {
-        // Mimic heavy copy
-        usleep(1);
-    }
+    LightStruct(const LightStruct& rh) { }
 };
 
 // Fixture cases.
@@ -27,14 +24,14 @@ class TheFixture : public benchmark::Fixture
     }
 
     // define member variables
-    using TestMap_t = std::map<int, HeavyStruct>;
+    using TestMap_t = std::map<int, LightStruct>;
     TestMap_t theMap;
 };
 
-BENCHMARK_F(TheFixture, heavyInsert_case)(benchmark::State& state){
+BENCHMARK_F(TheFixture, lightInsertCase)(benchmark::State& state){
   for (auto _ : state){
       for (auto i = 0; i < loopCount; ++i) {
-          theMap.insert(TestMap_t::value_type(i, HeavyStruct(i)));
+          theMap.insert(TestMap_t::value_type(i, LightStruct(i)));
       }
   }
 }
@@ -74,7 +71,7 @@ BENCHMARK_F(TheFixture, heavyInsert_case)(benchmark::State& state){
 
 
 
-BENCHMARK_F(TheFixture, heavyEmplaceCase)(benchmark::State& state){
+BENCHMARK_F(TheFixture, lightEmplaceCase)(benchmark::State& state){
   for (auto _ : state){
       for (auto i = 0; i < loopCount; ++i) {
           theMap.emplace(i,i);
