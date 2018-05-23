@@ -73,4 +73,5 @@ BENCHMARK_F(TheFixture, bm_unique_ptr_ref)(benchmark::State& state){
 }
 
 
+// the same of #3: char* -> string
 BENCHMARK_MAIN();

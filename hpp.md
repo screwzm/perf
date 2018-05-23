@@ -58,7 +58,7 @@ And use the best algorithms in your project.
 
 <br>
 *#2 Avoid unnecessary overhead*
-Pay what we have to.
+Know background operations behind API call, and Pay only what we have to.
 
 <br>
 *#3 Use the proper Data Structure*
