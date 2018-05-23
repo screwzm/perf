@@ -11,7 +11,11 @@ struct HeavyStruct
     HeavyStruct(const int i) { m_array[0] = i; }
 
     HeavyStruct(const HeavyStruct& rh) {
-        // Mimic heavy copy
+        // Mimic heavy copy ctor
+        usleep(1);
+    }
+    HeavyStruct(HeavyStruct&& rh) {
+        // Mimic heavy move ctor 
         usleep(1);
     }
 };

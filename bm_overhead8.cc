@@ -7,8 +7,7 @@
 static const auto loopCount = 10;
 struct LightStruct
 {
-    std::array<int, 4096> m_array;
-    LightStruct(const int i) { m_array[0] = i; }
+    LightStruct(const int i) {  }
 
     LightStruct(const LightStruct& rh) { }
 };
