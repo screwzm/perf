@@ -69,7 +69,7 @@ static void bm_case2(benchmark::State& state){
    }
 }
 
-BENCHMARK(bm_case2);
 BENCHMARK(bm_case1);
+BENCHMARK(bm_case2);
 
 BENCHMARK_MAIN();
