@@ -8,9 +8,8 @@ This sharing consists of following chapters.
 
 *Chapter 1* - Introducing main rules on high performance programming
 *Chapter 2* - Introducing main technicals on high performance programming
-*Chapter 3* - Some C++ case and example
-*Chapter 4* - Some System programming case and exmple
-*Chapter 5* - Discussion
+*Chapter 3* - Case study
+*Chapter 4* - Discussion
 
 ---
 -> _Chapter 1_ <-
@@ -24,7 +23,9 @@ This is the main known wisdom accpted by the public about optimization, and indi
 But I prefer
 
 <br>
-> "Familiarize yourself with the best practices and the pitfalls of optimization will help deliver high quality code in the first place." - by *Zhiming, WANG*
+> "Familiarize yourself with the best practices and the pitfalls of optimization will help deliver high quality code in the first place." - by 
+<br>
+*Wang Shifu*
 
 <br>
 >> "It's ok to take performance into consideration in the first place, even in design stage of your project. What is not ok is spending too much time on deciding which method has better performance and don't actually coding any line." -  From *<<Optimized C++>>*
@@ -39,7 +40,7 @@ But I prefer
 
 <br>
 *Rule #2* - Always design measure method before any *MAJOR* optimization.
-Some trivial optimization may be justfied easily, such as copy elision. Major/systematic optimization must be measured by data, i.e. latency and throughput. Examples in this sharing will be measured by *Google benchmark*.
+Some trivial optimization may be justfied easily, such as copy elision. Major/systematic optimization must be measured by data, i.e. latency and throughput.
 
 <br>
 *Rule #3* - Obey the "1/9 rule". 
@@ -81,6 +82,14 @@ lockfree, kernel bypass, numa/cpu affinity, irq affinity, lock memory etc.
 
 
 ---
+
+-> *Talk is cheap, show me the code.* <-
+
+<br>
+Let's start by introducing *google benchmark* framework..
+
+---
+
 -> _Chapter 3_ <-
 *Discussion*
 
