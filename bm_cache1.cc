@@ -66,3 +66,6 @@ BENCHMARK(bm_case3);
 BENCHMARK(bm_case4)->Threads(THREAD_NUM);
 
 BENCHMARK_MAIN();
+
+
+// Avoid false sharing..  Seprate readonly and read-write data. 

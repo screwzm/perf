@@ -2,7 +2,7 @@
 #include <iostream>
 #include <sstream>
 
-static int loopCount = 1024;
+static const int loopCount = 1024;
 static void bm_case1(benchmark::State& state){
     for (auto _ : state){
         for (auto i = 0; i < loopCount; ++i) {

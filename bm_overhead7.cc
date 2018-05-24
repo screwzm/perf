@@ -1,7 +1,5 @@
 #include "benchmark.h"
-#include <array>
 #include <map>
-#include <iostream>
 #include <unistd.h>
 
 static const auto loopCount = 10;
@@ -11,11 +9,11 @@ struct HeavyStruct
     HeavyStruct(const int i) { m_array[0] = i; }
 
     HeavyStruct(const HeavyStruct& rh) {
-        // Mimic heavy copy ctor
+        // Simulate heavy copy ctor
         usleep(1);
     }
     HeavyStruct(HeavyStruct&& rh) {
-        // Mimic heavy move ctor 
+        // Simulate heavy move ctor 
         usleep(1);
     }
 };

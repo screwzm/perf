@@ -1,7 +1,5 @@
 #include "benchmark.h"
-#include <array>
 #include <map>
-#include <iostream>
 #include <unistd.h>
 
 static const auto loopCount = 10;
@@ -34,40 +32,6 @@ BENCHMARK_F(TheFixture, lightInsertCase)(benchmark::State& state){
       }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 BENCHMARK_F(TheFixture, lightEmplaceCase)(benchmark::State& state){

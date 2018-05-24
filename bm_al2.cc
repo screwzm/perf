@@ -1,7 +1,6 @@
 #include "benchmark.h"
 #include <list>
 
-// Fixture cases.
 class TheFixture : public benchmark::Fixture
 {
   public:
@@ -11,9 +10,9 @@ class TheFixture : public benchmark::Fixture
 
     ~TheFixture(){
     }
-    std::list<int> theList;
 
     // define member variables
+    std::list<int> theList;
 };
 
 BENCHMARK_F(TheFixture, bm_case1)(benchmark::State& state){

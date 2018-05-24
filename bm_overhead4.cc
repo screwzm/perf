@@ -7,21 +7,18 @@ struct Test
 {
     int i = 0;
 };
-// Fixture cases.
+
 class TheFixture : public benchmark::Fixture
 {
   public:
     TheFixture(){
         sp = std::make_shared<Test>();
-        thePointer = new Test;
         up.reset(new Test);
     }
 
     ~TheFixture(){
-        // delete thePointer;
     }
     std::shared_ptr<Test> sp;
-    Test* thePointer;
     std::unique_ptr<Test> up;
 
     // define member variables
@@ -43,7 +40,7 @@ class TheFixture : public benchmark::Fixture
 BENCHMARK_F(TheFixture, bm_raw_pointer)(benchmark::State& state){
   for (auto _ : state){
       for (auto i = 0; i < loopCount; ++i) {
-          handler(thePointer);
+          handler(sp.get());
       }
   }
 }
@@ -73,5 +70,4 @@ BENCHMARK_F(TheFixture, bm_unique_ptr_ref)(benchmark::State& state){
 }
 
 
-// the same of #3: char* -> string
 BENCHMARK_MAIN();

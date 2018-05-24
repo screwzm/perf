@@ -25,16 +25,16 @@ struct Derived6 : Base {
     virtual void handleNewOrder() override { ++ i; }
 };
 struct Derived7 : Base {
-    virtual void handleNewOrder() override { ++ i; }
+    // virtual void handleNewOrder() override { ++ i; }
 };
 struct Derived8 : Base {
-    virtual void handleNewOrder() override { ++ i; }
+    // virtual void handleNewOrder() override { ++ i; }
 };
 struct Derived9 : Base {
-    virtual void handleNewOrder() override { ++ i; }
+    // virtual void handleNewOrder() override { ++ i; }
 };
 struct Derived10 : Base {
-    virtual void handleNewOrder() override { ++ i; }
+    // virtual void handleNewOrder() override { ++ i; }
 };
 
 Derived1 d1;
@@ -72,60 +72,11 @@ void traverse(T&& t, Args&& ... args) {
     return;
 }
 
-static void bm_case1(benchmark::State& state){
+static void bm_base_ref(benchmark::State& state){
    for (auto _ : state){
        traverse(b1, b2, b3, b4, b5, b6, b7, b8, b9, b10);
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 struct Base2
 {
@@ -175,15 +126,25 @@ Derived28 d28;
 Derived29 d29;
 Derived210 d210;
 
-static void bm_case2(benchmark::State& state){
+static void bm_template_Derive(benchmark::State& state){
    for (auto _ : state){
        traverse(d21, d22, d23, d24, d25, d26, d27, d28, d29, d210);
    }
 }
-// If you are still not impressed, go to bm_overhead3
 
-BENCHMARK(bm_case1);
-BENCHMARK(bm_case2);
+
+static void bm_Derive(benchmark::State& state){
+   for (auto _ : state){
+       traverse(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10);
+   }
+}
+
+BENCHMARK(bm_base_ref);
+BENCHMARK(bm_Derive);
+BENCHMARK(bm_template_Derive);
 
 
 BENCHMARK_MAIN();
+
+
+// Lesson: Optimization is complex.

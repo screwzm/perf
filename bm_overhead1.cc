@@ -4,7 +4,6 @@
 
 static int const loopCount = 2048*4;
 
-// Standalone cases.
 static void bm_case1(benchmark::State& state){
    for (auto _ : state){
      std::vector<int> vec;
