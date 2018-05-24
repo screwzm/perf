@@ -85,7 +85,7 @@ struct Base2
 };
 
 struct Derived21 : Base2 {
-    void handleNewOrder(){ ++ i; }
+    void handleNewOrder(){ ++ i; } // hide Base::handleNewOrder
 };
 struct Derived22 : Base2 {
     void handleNewOrder(){ ++ i; }

@@ -13,6 +13,7 @@ static void bm_case1(benchmark::State& state){
                    it = theMap.emplace(item, item).first;
                }
                return it->second;
+               // operator[]
            };
 
            auto& ret = getOrInsert(i);
