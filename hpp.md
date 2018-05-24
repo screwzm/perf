@@ -43,7 +43,7 @@ Some trivial optimization may be justfied easily, such as copy elision. Major/sy
 
 <br>
 *Rule #3* - Obey the "1/9 rule". 
-That's 90% of the calculation are handled by 10% of the code. This means that 90% of our code base is not performance critical. Optimization those 90% code has little performance benfit. DO NOT try to optimize all the code.
+That's 90% of the calculation are handled by 10% of the code. This means that 90% of our code base is not performance critical. Fix the current bottleneck by tools like perf/valgrind.
 
 <br>
 *Rule #4* - Optimize with priority in mind: algorithm, IO, data access, lib ...
