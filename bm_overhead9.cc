@@ -17,7 +17,7 @@ static void bm_case1(benchmark::State& state){
            try {
                func(i);
            }
-           catch (const ExceptA&) {
+           catch (const ExceptA& ex) {
                 caseAHandler();
            }
            catch (const ExceptB&) {

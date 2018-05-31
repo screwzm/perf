@@ -32,7 +32,7 @@ static void bm_case1(benchmark::State& state){
     if (reinterpret_cast<long>(&tq) % CACHE_LINE_SIZE != 0) throw "CACHE_LINE_SIZE aligned failed";
     if (reinterpret_cast<long>(&tq.m_item) % CACHE_LINE_SIZE != 0) throw "CACHE_LINE_SIZE aligned failed";
     if (reinterpret_cast<long>(&tq.m_id) % CACHE_LINE_SIZE == 0) throw "CACHE_LINE_SIZE aligned failed";
-    // std::cout << "sizeof(tq): " << sizeof(tq) << std::endl;
+    std::cout << "sizeof(tq): " << sizeof(tq) << std::endl;
     auto adding = []() {
         setThreadAffinity(1);
 
@@ -48,7 +48,7 @@ static void bm_case1(benchmark::State& state){
     setThreadAffinity(2);
     for (auto _ : state){
         for (auto i = 0; i < LOOP_COUNT; ++i) {
-            benchmark::DoNotOptimize(tq.m_id);
+            benchmark::DoNotOptimize(tq.m_id); //m_item
         }
     }
 
@@ -116,7 +116,7 @@ static void bm_case2(benchmark::State& state){
     if (reinterpret_cast<long>(&tq2) % CACHE_LINE_SIZE != 0) throw "CACHE_LINE_SIZE aligned failed";
     if (reinterpret_cast<long>(&tq2.m_item) % CACHE_LINE_SIZE != 0) throw "CACHE_LINE_SIZE aligned failed";
     if (reinterpret_cast<long>(&tq2.m_id) % CACHE_LINE_SIZE != 0) throw "CACHE_LINE_SIZE aligned failed";
-    // std::cout << "sizeof(tq2): " << sizeof(tq2) << std::endl;
+    std::cout << "sizeof(tq2): " << sizeof(tq2) << std::endl;
     auto adding = []() {
         setThreadAffinity(1);
 
@@ -129,10 +129,10 @@ static void bm_case2(benchmark::State& state){
     std::thread  addThread = std::thread(adding);
     while (not start2) {}
 
-    setThreadAffinity(1);
+    setThreadAffinity(2);
     for (auto _ : state){
         for (auto i = 0; i < LOOP_COUNT; ++i) {
-            benchmark::DoNotOptimize(tq2.m_id);
+            benchmark::DoNotOptimize(tq2.m_id); // false sharing
         }
     }
 

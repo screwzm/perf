@@ -1,5 +1,5 @@
 %title: High Performance Programming
-%author: Zhiming, WANG, 2018/05/24, ShanCe Technologies.
+%author: Zhiming, WANG, 2018/05/24
 %date: 2018-05-24
 
 -> _SUMMARY_ <-

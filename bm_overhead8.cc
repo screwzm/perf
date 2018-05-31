@@ -37,8 +37,7 @@ BENCHMARK_F(TheFixture, lightInsertCase)(benchmark::State& state){
 BENCHMARK_F(TheFixture, lightEmplaceCase)(benchmark::State& state){
   for (auto _ : state){
       for (auto i = 0; i < loopCount; ++i) {
-          theMap.emplace(i,i);
-      }
+          theMap.emplace(i,i); }// std::forward()e;wa
   }
 }
 

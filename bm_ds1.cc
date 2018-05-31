@@ -1,5 +1,6 @@
 #include "benchmark.h"
 #include <set>
+#include <unordered_set>
 #include <algorithm>
 
 static const auto loopCount = 10000000;
@@ -15,7 +16,7 @@ class TheFixture : public benchmark::Fixture
     }
 
     // define member variables
-    std::set<int> uniqueSet;
+    std::unordered_set<int> uniqueSet;
 };
 
 BENCHMARK_F(TheFixture, bm_case1)(benchmark::State& state) {
@@ -62,7 +63,7 @@ BENCHMARK_F(TheFixture, bm_case1)(benchmark::State& state) {
 BENCHMARK_F(TheFixture, bm_case2)(benchmark::State& state){
     for (auto _ : state){
         std::vector<int> vec;
-        vec.reserve(loopCount);
+        // vec.reserve(loopCount);
         for (auto i = 0; i < loopCount; ++ i) {
             vec.push_back(i);
         }

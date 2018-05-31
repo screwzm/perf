@@ -9,13 +9,14 @@ class TheFixture : public benchmark::Fixture
   public:
     TheFixture(){
         std::ofstream of("/tmp/perf_test", std::ios::out);
-        of << "ShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocksShanceRocks";
+        for (int i = 0; i < 1000; ++i) 
+        of << "XXXXXXRocks";
     }
 
     ~TheFixture(){
     }
 
-    enum { EACH_MSG_LEN = 11 }; // len of "ShanceRocks"
+    enum { EACH_MSG_LEN = 11 }; // len of "XXXXXXRocks"
     char buffer[EACH_MSG_LEN];
 };
 
@@ -25,6 +26,7 @@ BENCHMARK_F(TheFixture, bm_case1)(benchmark::State& state){
       while (ifs) {
           ifs.read(buffer, EACH_MSG_LEN);
           // handle buffer here
+          // handler(buffer);
       }
   }
 }
@@ -82,6 +84,7 @@ BENCHMARK_F(TheFixture, bm_case2)(benchmark::State& state){
       while (arrayBegin < arrayBegin) {
           // We can use arrayBegin as buffer directly here
           arrayBegin += EACH_MSG_LEN;
+          // handler(arrayBegin);
       }
 
 

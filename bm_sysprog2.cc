@@ -44,8 +44,8 @@ static void bm_sendDataOverTcpSocket(benchmark::State& state){
     server.sin_addr = ipv4addr;
 
     auto ret = connect(sd, (const sockaddr *)&server, sizeof(server));
-    if (ret) perror("connect() failed ");
-    const char content[] = "ShanCe Rocks! We SCers Rock!\n";
+    if (ret) perror("connect() failed, nc -k -l 10000 first to start the server");
+    const char content[] = "Perf Rocks!\n";
 
    for (auto _ : state){
        auto ret = write(sd, content, sizeof(content));
